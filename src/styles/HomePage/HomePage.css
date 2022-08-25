@@ -1,0 +1,205 @@
+* {
+  outline: #ff0000 1px solid;
+}
+
+@media (max-width: 376px) {
+  .postar {
+    
+  }
+
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 496px) {
+  .imagenPerfil {
+    margin-left: 1rem;
+  }
+
+  .button {
+    width: 5rem;
+  }
+
+  .pensamento {
+    font-size: 1.2rem;
+  }
+  .postar {
+    max-width: 407px;
+    height: 11rem;
+  }
+  li {
+    max-width: 17rem;
+  }
+
+  .button {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 689px) {
+  .postar {
+    height: 10rem;
+  }
+  .pensamento {
+    font-size: 1.2rem;
+  }
+}
+
+body,
+.postar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(67, 67, 161, 0.747);
+}
+main {
+  background-color: rgba(67, 67, 161, 0.747);
+}
+
+header {
+  background-color: #2f61be;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.FotoPerfil {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+}
+
+.postar {
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  height: 6rem;
+  height: 1rem;
+  margin: 1rem 0rem 1rem 0rem;
+  width: 51%;
+  height: 11rem;
+}
+
+.pensamento {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  height: 109%;
+  width: 100%;
+}
+.enviarPost {
+  border-radius: 2rem;
+  width: 5rem;
+}
+
+.inputText {
+  background: transparent;
+  font-size: 1.4rem;
+  border: none;
+
+  max-height: 7rem;
+  min-height: 7rem;
+  text-align: start;
+  max-width: 100%;
+  min-width: 100%;
+}
+.inputText:hover {
+  cursor: text;
+}
+.inputText::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.inputText::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0); /* color of the tracking area */
+}
+
+.inputText::-webkit-scrollbar-thumb {
+  background-color: rgb(105, 105, 105); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid rgb(100, 100, 99); /* creates padding around scroll thumb */
+}
+
+.inputText:focus,
+.inputText:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  cursor: none;
+}
+.poster {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.buttonlogout {
+  display: flex;
+  justify-content: right;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+}
+
+.conteudo {
+  display: flex;
+}
+
+.imagenPerfil {
+  margin-left: 5rem;
+}
+
+.logout {
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.enviarPost,
+.buttonlogout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(7, 33, 102);
+  color: antiquewhite;
+
+  border-radius: 2rem;
+  height: 2rem;
+}
+
+.button:hover,
+.enviarPost:hover,
+.editar:hover,
+.deletar:hover {
+  cursor: pointer;
+}
+
+li {
+  width: 53%;
+  margin-bottom: 0.7rem;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+}
+h2,
+p {
+  margin-left: 0.5rem;
+}
