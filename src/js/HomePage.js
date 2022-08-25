@@ -1,5 +1,10 @@
 
 
-function renderizarComentarios() {
+function renderizarComentarios(arrayComentário) {
+
+    forEach((element) => {
+        
+    });
+
 
 }

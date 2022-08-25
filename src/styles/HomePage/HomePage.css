@@ -1,12 +1,21 @@
-* {
-  outline: #ff0000 1px solid;
-}
+/* DEBUGADOR CSS */
 
-@media (max-width: 376px) {
-  .postar {
-    
+/* * {
+  outline: #ff0000 1px solid;
+} */
+
+@media (max-width: 386px) {
+  h2 {
+    margin-left: -1rem;
   }
 
+  .inputText {
+    max-height: 5rem;
+    min-height: 5rem;
+
+    max-width: 100%;
+    min-width: 100%;
+  }
   .conteudo {
     display: flex;
     flex-direction: column;
@@ -16,8 +25,17 @@
 }
 
 @media (max-width: 496px) {
+  .inputText {
+    max-height: 7rem;
+    min-height: 7rem;
+
+    max-width: 100%;
+    min-width: 100%;
+  }
   .imagenPerfil {
     margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
   }
 
   .button {
@@ -29,7 +47,6 @@
   }
   .postar {
     max-width: 407px;
-    height: 11rem;
   }
   li {
     max-width: 17rem;
@@ -41,22 +58,19 @@
 }
 
 @media (max-width: 689px) {
-  .postar {
-    height: 10rem;
-  }
   .pensamento {
     font-size: 1.2rem;
   }
 }
 
-body,
-.postar {
+.FotoPerfil {
+  margin-right: 1rem;
+}
+
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(67, 67, 161, 0.747);
-}
-main {
   background-color: rgba(67, 67, 161, 0.747);
 }
 
@@ -79,11 +93,9 @@ header {
   border-radius: 2rem;
   padding: 1rem;
   background-color: rgb(255, 255, 255);
-  height: 6rem;
-  height: 1rem;
   margin: 1rem 0rem 1rem 0rem;
   width: 51%;
-  height: 11rem;
+  height: 13rem;
 }
 
 .pensamento {
@@ -107,9 +119,11 @@ header {
   font-size: 1.4rem;
   border: none;
 
+  text-align: start;
+
   max-height: 7rem;
   min-height: 7rem;
-  text-align: start;
+
   max-width: 100%;
   min-width: 100%;
 }
@@ -163,7 +177,11 @@ ul {
 }
 
 .imagenPerfil {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: 5rem;
+  align-items: center;
+  display: flex;
 }
 
 .logout {
@@ -180,6 +198,8 @@ ul {
 
   background-color: rgb(7, 33, 102);
   color: antiquewhite;
+
+  width: 8rem;
 
   border-radius: 2rem;
   height: 2rem;
@@ -198,8 +218,4 @@ li {
   padding: 2rem;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
-}
-h2,
-p {
-  margin-left: 0.5rem;
 }
