@@ -64,3 +64,4 @@ function renderizarComentarios(arrayComentário) {
         ul.appendChild(li)
     });
 }
+
