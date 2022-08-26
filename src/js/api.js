@@ -1,7 +1,7 @@
 export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
-    static token = ""
+    static token = localStorage.getItem("BlogKenzie:token")
 
     static async cadastro(users, register) {
         await fetch(`${this.URLbase}/${users}/${register}`, {

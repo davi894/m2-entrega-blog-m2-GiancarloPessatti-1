@@ -1,0 +1,63 @@
+.editposts{
+
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    z-index:2;
+    position: relative;
+
+}
+.caixapopup{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color:rgb(87, 86, 172);;
+    ;
+    border-radius: 8px;
+    gap: 2rem;
+    height: 15rem;
+    width: max-content;
+    text-align: center;
+}
+.Editar{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0px;
+}
+#inputeditcomentario{
+
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+}
+.botaoenviareditcao{
+background-color: rgba(31, 28, 206, 0.664);
+border-radius: 50px;
+border: 1px solid transparent;
+color: white;
+padding: 0.5rem 2rem;
+}
+@media (min-width: 768px) {
+
+    .caixapopup{
+        padding: 2.5rem 3rem;
+    }
+    .Editar{
+
+        font-size: 2rem;
+
+    }
+    #inputeditcomentario{
+        width: 20rem;
+    }
+    .botaoenviareditcao{
+        font-size: 1rem;
+        padding: 1rem 3rem;
+
+    }
+}

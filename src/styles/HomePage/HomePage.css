@@ -41,6 +41,18 @@
     min-width: 100%;
   }
 
+  .button {
+    width: 5rem;
+  }
+
+  .pensamento {
+    font-size: 1.2rem;
+  }
+  .postar {
+    max-width: 407px;
+    z-index:1
+  }
+
   li {
     max-width: 17rem;
   }
@@ -80,6 +92,7 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  z-index:1
 }
 
 .FotoPerfil {
