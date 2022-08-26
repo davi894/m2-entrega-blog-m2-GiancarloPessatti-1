@@ -4,13 +4,20 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+body{
+
+    position: relative;
+
+}
+
 .editposts{
 
     display: flex;
     margin: 0 auto;
     align-items: center;
     z-index:2;
-    position: relative;
+    position: absolute;
+    margin-top: 15%;
 
 }
 .caixapopup{
@@ -31,7 +38,7 @@
 .Editar{
     font-family: 'Roboto Mono', monospace;
     color: white;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     margin: 0px;
 }
