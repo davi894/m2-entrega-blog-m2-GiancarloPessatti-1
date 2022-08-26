@@ -25,6 +25,14 @@
 }
 
 @media (max-width: 496px) {
+  .imagenPerfil {
+    flex-direction: column;
+  }
+
+  .pensamento {
+    font-size: 1.2rem;
+  }
+
   .inputText {
     max-height: 7rem;
     min-height: 7rem;
@@ -32,28 +40,17 @@
     max-width: 100%;
     min-width: 100%;
   }
-  .imagenPerfil {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: row;
-  }
 
-  .button {
-    width: 5rem;
-  }
-
-  .pensamento {
-    font-size: 1.2rem;
-  }
-  .postar {
-    max-width: 407px;
-  }
   li {
     max-width: 17rem;
   }
 
   .button {
     width: 5rem;
+  }
+
+  .postar {
+    max-width: 407px;
   }
 }
 
@@ -71,12 +68,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   background-color: rgba(67, 67, 161, 0.747);
 }
 
 header {
   background-color: #2f61be;
   width: 100%;
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -86,14 +85,17 @@ header {
 .FotoPerfil {
   height: 5rem;
   width: 5rem;
+
   border-radius: 100%;
 }
 
 .postar {
   border-radius: 2rem;
-  padding: 1rem;
   background-color: rgb(255, 255, 255);
+
+  padding: 1rem;
   margin: 1rem 0rem 1rem 0rem;
+
   width: 51%;
   height: 13rem;
 }
@@ -109,6 +111,7 @@ header {
   height: 109%;
   width: 100%;
 }
+
 .enviarPost {
   border-radius: 2rem;
   width: 5rem;
@@ -127,21 +130,23 @@ header {
   max-width: 100%;
   min-width: 100%;
 }
+
 .inputText:hover {
   cursor: text;
 }
+
 .inputText::-webkit-scrollbar {
-  width: 12px; /* width of the entire scrollbar */
+  width: 12px;
 }
 
 .inputText::-webkit-scrollbar-track {
-  background: rgb(0, 0, 0); /* color of the tracking area */
+  background: rgb(0, 0, 0);
 }
 
 .inputText::-webkit-scrollbar-thumb {
-  background-color: rgb(105, 105, 105); /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid rgb(100, 100, 99); /* creates padding around scroll thumb */
+  background-color: rgb(105, 105, 105);
+  border-radius: 20px;
+  border: 3px solid rgb(100, 100, 99);
 }
 
 .inputText:focus,
@@ -168,8 +173,21 @@ ul {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
   list-style: none;
+
   width: 100%;
+}
+
+li {
+  width: 53%;
+
+  margin-bottom: 0.7rem;
+  padding: 2rem;
+
+  background-color: rgb(255, 255, 255);
+
+  border-radius: 1rem;
 }
 
 .conteudo {
@@ -201,8 +219,23 @@ ul {
 
   width: 8rem;
 
+  border: none;
+
   border-radius: 2rem;
   height: 2rem;
+}
+
+.buttonlogout:hover,
+.enviarPost:hover {
+  color: #2f61be;
+
+  background-color: aquamarine;
+
+  cursor: pointer;
+
+  border: none;
+
+  transition: 0.5s;
 }
 
 .button:hover,
@@ -210,12 +243,4 @@ ul {
 .editar:hover,
 .deletar:hover {
   cursor: pointer;
-}
-
-li {
-  width: 53%;
-  margin-bottom: 0.7rem;
-  padding: 2rem;
-  background-color: rgb(255, 255, 255);
-  border-radius: 1rem;
 }
