@@ -4,12 +4,20 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+body{
+
+    position: relative;
+
+}
+
 .delposts {
     display: flex;
     margin: 0 auto;
     align-items: center;
     z-index: 2;
-    position: relative;
+    position: absolute;
+    margin-top: 20%;
+
 }
 
 .delcaixapopup {
@@ -32,7 +40,7 @@
     
     font-family: 'Roboto Mono', monospace;
     color: white;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     margin: 0px;
 
@@ -47,4 +55,12 @@
     padding: 0.5rem 2rem;
     cursor: pointer;
 
+}
+@media (min-width: 768px) {
+
+    .deletar{
+
+        font-size: 2rem;
+
+    }
 }
