@@ -1,4 +1,4 @@
-function ToggleEditButton() {
+export function ToggleEditButton() {
 
     let button = document.querySelectorAll(".editar")
     let arraybutton = [...button]
@@ -20,7 +20,8 @@ function ToggleEditButton() {
     })})
 }
 
-function ToggleDeleteButton() {
+export function ToggleDeleteButton() {
+
 
     let button = document.querySelectorAll(".deletar")
     let arraybutton = [...button]
@@ -38,6 +39,8 @@ function ToggleDeleteButton() {
             DivPopUpEdit.style.display = "none"
 
     }
+
+    
 
     })})
 }
