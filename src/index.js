@@ -2,7 +2,7 @@ import { ApiBlogKenzie } from "./js/api.js"
 
 const botaologar = document.querySelector("#botaologar")
 
-botaologar.addEventListener("click", (e) => {
+botaologar.addEventListener("click", async (e) => {
 
     const idemaillogin = document.querySelector("#idemaillogin").value
     const senhalogar = document.querySelector("#senhalogar").value
@@ -10,12 +10,16 @@ botaologar.addEventListener("click", (e) => {
     console.log(e.target)
     console.log(idemaillogin, senhalogar)
 
-    ApiBlogKenzie.login()
+    ApiBlogKenzie.login({
+        email: idemaillogin,
+        password: senhalogar
+    }
+    )
 })
 
 const botaocadastrar = document.querySelector("#botaocadastrar")
 
-botaocadastrar.addEventListener("click", (e) => {
+botaocadastrar.addEventListener("click", async (e) => {
     const senhacadastro = document.querySelector("#senhacadastro").value
 
     const Nomecadastro = document.querySelector("#Nomecadastro").value
@@ -28,6 +32,12 @@ botaocadastrar.addEventListener("click", (e) => {
     console.log(senhacadastro, Nomecadastro, idemailcadastro, imagemcadastro)
     console.log(e.target)
 
-    await ApiBlogKenzie.cadastro()
+    await ApiBlogKenzie.cadastro(
+        {
+            username: Nomecadastro,
+            email: idemailcadastro,
+            avatarUrl: imagemcadastro,
+            password: senhacadastro
+        })
 
 })
