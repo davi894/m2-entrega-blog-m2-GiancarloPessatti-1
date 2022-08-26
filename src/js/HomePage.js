@@ -1,4 +1,9 @@
 import { ApiBlogKenzie } from "./api.js"
+import { ToggleDeleteButton } from "./toggledisplay.js"
+import { ToggleEditButton } from "./toggledisplay.js"
+
+
+
 
 function renderizarComentarios(arrayComentário) {
 
@@ -34,17 +39,13 @@ function renderizarComentarios(arrayComentário) {
         imgEditar.classList.add("editar")
         imgEditar.src
 
-        imgEditar.addEventListener("click", (e) => {
-
-        })
+        imgEditar.addEventListener("click", ToggleEditButton)
 
         const imgDeletar = document.createElement("img")
         imgDeletar.classList.add("deletar")
         imgDeletar.src
 
-        imgDeletar.addEventListener("click", (e) => {
-
-        })
+        imgDeletar.addEventListener("click", ToggleDeleteButton)
 
         const divDataPost = document.createElement("div")
 
@@ -64,3 +65,4 @@ function renderizarComentarios(arrayComentário) {
         ul.appendChild(li)
     });
 }
+
