@@ -13,13 +13,13 @@ botaologar.addEventListener("click", async (e) => {
     ApiBlogKenzie.login({
         email: idemaillogin,
         password: senhalogar
-    }
-    )
+    })
 })
 
 const botaocadastrar = document.querySelector("#botaocadastrar")
 
 botaocadastrar.addEventListener("click", async (e) => {
+    
     const senhacadastro = document.querySelector("#senhacadastro").value
 
     const Nomecadastro = document.querySelector("#Nomecadastro").value

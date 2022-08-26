@@ -5,10 +5,10 @@ function buscarDadosUser(array) {
 
     const inptEx = document.querySelector("input")
 
-    array.forEach((element, i, arr) => {
+    array.forEach(async (element, i, arr) => {
 
         if (element.user["id"] == inptEx.value) {
-            ApiBlogKenzie.buscarInformacoresDoUsuarios(element.user["id"])
+            await ApiBlogKenzie.buscarInformacoresDoUsuarios(element.user["id"])
         }
 
     });
