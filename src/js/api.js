@@ -1,4 +1,4 @@
-import { HomePage } from "./HomePage.js"
+
 export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
@@ -35,9 +35,6 @@ export class ApiBlogKenzie {
         console.log(userslogin)
 
 
-        HomePage.nomeImgUser()
-
-
         const loginUser = await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
             headers: this.headers,
@@ -53,7 +50,7 @@ export class ApiBlogKenzie {
             })
             .catch(err => console.log(err))
 
-            
+
         
         return loginUser
     }
