@@ -142,9 +142,13 @@ class Logout {
 
     static sairDapágina() {
         this.logout.addEventListener("click", (e) => {
-            window.location.replace("/m2-entrega-blog-m2-GiancarloPessatti-1/index.html")
+            window.location.replace("../index.html")
         })
+
+        
     }
+
+
 }
 
 // HomePage.renderizarComentarios(arrayComentário)
