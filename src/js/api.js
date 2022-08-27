@@ -12,9 +12,6 @@ export class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
-
-
-
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
             headers: this.headers,
@@ -31,9 +28,7 @@ export class ApiBlogKenzie {
 
     static async login(userslogin) {
 
-
         console.log(userslogin)
-
 
         const loginUser = await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
@@ -42,14 +37,12 @@ export class ApiBlogKenzie {
         })
             .then(resp => resp.json())
             .then(resp => {
+                localStorage.setItem("KenziBlog:Id", resp.userId)
+                localStorage.setItem("KenzieBlog:Token", resp.token)
                 window.location.replace("./src/html/HomePage.html")
-                localStorage.setItem("KenziBlog: id", resp.userId)
-                localStorage.setItem("KenzieBlog: token", resp.token)
-                console.log(resp)
-                return resp
             })
             .catch(err => console.log(err))
-        return loginUser
+
     }
 
     static async buscarInformacoresDoUsuarios(id) {

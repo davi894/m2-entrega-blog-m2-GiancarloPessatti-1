@@ -68,20 +68,23 @@ class HomePage {
 
             const imgEditar = document.createElement("img")
             imgEditar.classList.add("editar")
-            imgEditar.src = "./src/assents/edit 1.png"
+            imgEditar.src = "../assents/edit 1.png"
 
             imgEditar.addEventListener("click", ToggleEditButton)
 
             const imgDeletar = document.createElement("img")
             imgDeletar.classList.add("deletar")
-            imgDeletar.src = "./src/assents/trash-bin 1.png"
+            imgDeletar.src = "../assents/trash-bin 1.png"
 
             imgDeletar.addEventListener("click", ToggleDeleteButton)
 
             const divDataPost = document.createElement("div")
 
+            
             const spanData = document.createElement("span")
             spanData.innerText = element.createdAt
+
+            console.log([element.createdAt].split(""))
 
             divDataPost.appendChild(spanData)
 
@@ -89,20 +92,15 @@ class HomePage {
 
             divTexto.append(h2NomeUsuario, pPostarTexto)
 
-            divConteudo.append(imgPerfil, divTexto, divPoster)
+            divConteudo.append(imgPerfil, divTexto)
 
-            li.appendChild(divConteudo)
+            li.append(divConteudo, divPoster)
 
             ul.appendChild(li)
         });
     }
 
-
-
     static nomeImgUser(usersCadastro) {
-
-
-        usersCadastro
 
         const nomeUsuario = document.querySelector(".nomeUsuario")
         const fotoperfil = document.querySelector(".FotoPerfil")
@@ -122,19 +120,16 @@ class EnviarPost {
     static postar() {
         this.butonEnviarPost.addEventListener("click", (e) => {
 
-            console.log(e.target)
+            //  console.log(e.target)
 
             const IdPost = document.querySelector("li").id
             const textAreaPost = document.querySelector("textarea").value
-            console.log(textAreaPost)
+            //   console.log(textAreaPost)
             let conteudo = {
-
                 conteudo: textAreaPost,
                 Id: IdPost
-
             }
             ApiBlogKenzie.criarNovoPost({ content: conteudo })
-
         })
     }
 }
@@ -150,9 +145,9 @@ class Logout {
     }
 }
 
-// HomePage.renderizarComentarios(arrayComentário)
-// HomePage.nomeImgUser() 
-// EnviarPost.postar()
+HomePage.renderizarComentarios(arrayComentário)
+HomePage.nomeImgUser()
+EnviarPost.postar()
 Logout.sairDapágina()
 
 export { HomePage }
