@@ -82,8 +82,18 @@ class EnviarPost {
         this.butonEnviarPost.addEventListener("click", (e) => {
 
             console.log(e.target)
+
+            const IdPost = document.querySelector("li").id
             const textAreaPost = document.querySelector("textarea").value
             console.log(textAreaPost)
+            let conteudo = {
+
+                conteudo : textAreaPost,
+                Id : IdPost
+
+            }
+            ApiBlogKenzie.criarNovoPost({content : conteudo})
+
         })
     }
 }
@@ -94,14 +104,14 @@ class Logout {
 
     static sairDapágina() {
         this.logout.addEventListener("click", (e) => {
-            window.location.replace("/index.html")
+            window.location.replace("/m2-entrega-blog-m2-GiancarloPessatti-1/index.html")
         })
     }
 }
 
-//HomePage.renderizarComentarios()
-/* HomePage.nomeImgUser() */
-//EnviarPost.postar()
+// HomePage.renderizarComentarios()
+// HomePage.nomeImgUser() 
+EnviarPost.postar()
 Logout.sairDapágina()
 
 export { HomePage }

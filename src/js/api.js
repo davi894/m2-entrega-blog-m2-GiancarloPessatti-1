@@ -32,7 +32,7 @@ export class ApiBlogKenzie {
         })
             .then(resp => resp.json())
             .then(resp => {
-                window.location.replace("../src/html/HomePage.html")
+                window.location.replace("./src/html/HomePage.html")
                 localStorage.setItem("KenziBlog:id", resp.id)
                 localStorage.setItem("KenzieBlog: token", resp.token)
                 console.log(resp)

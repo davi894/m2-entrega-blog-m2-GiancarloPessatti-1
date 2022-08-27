@@ -7,10 +7,10 @@ botaologar.addEventListener("click", async (e) => {
     const idemaillogin = document.querySelector("#idemaillogin").value
     const senhalogar = document.querySelector("#senhalogar").value
 
-    console.log(e.target)
-    console.log(idemaillogin, senhalogar)
+    // console.log(e.target)
+    // console.log(idemaillogin, senhalogar)
 
-    let userLogin = ApiBlogKenzie.login({
+    let userLogin = await ApiBlogKenzie.login({
         "email": idemaillogin,
         "password": senhalogar
     })
