@@ -12,8 +12,8 @@ export class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
-        
-        
+
+
 
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
@@ -49,9 +49,6 @@ export class ApiBlogKenzie {
                 return resp
             })
             .catch(err => console.log(err))
-
-
-        
         return loginUser
     }
 
