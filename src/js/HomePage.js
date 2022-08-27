@@ -49,6 +49,7 @@ class HomePage {
 
             const imgPerfil = document.createElement("img")
             imgPerfil.src = element.user["avatarUrl"]
+            imgPerfil.className = "FotoPerfil"
 
             const divTexto = document.createElement("div")
             divTexto.classList.add("texto")
@@ -93,14 +94,20 @@ class HomePage {
         });
     }
 
-    static nomeUsuario = document.querySelector(".nomeUsuario")
-    static fotoperfil = document.querySelector(".FotoPerfil")
+   
 
-    static nomeImgUser(nome, fotoPerfil) {
-        console.log(nome)
-        console.log(fotoPerfil)
-        this.nomeUsuario.innerHTML = nome
-        this.fotoperfil.src = fotoPerfil
+    static nomeImgUser(usersCadastro) {
+
+
+        usersCadastro
+
+        const nomeUsuario = document.querySelector(".nomeUsuario")
+        const fotoperfil = document.querySelector(".FotoPerfil")
+
+        console.log(usersCadastro)
+
+        nomeUsuario.innerHTML = usersCadastro.username
+        fotoperfil.src = usersCadastro.avatarUrl
     }
  
 }
@@ -140,9 +147,9 @@ class Logout {
     }
 }
 
-HomePage.renderizarComentarios(arrayComentário)
-HomePage.nomeImgUser() 
-EnviarPost.postar()
+// HomePage.renderizarComentarios(arrayComentário)
+// HomePage.nomeImgUser() 
+// EnviarPost.postar()
 Logout.sairDapágina()
 
 export { HomePage }

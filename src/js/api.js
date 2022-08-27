@@ -1,3 +1,4 @@
+import { HomePage } from "./HomePage.js"
 export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
@@ -11,7 +12,8 @@ export class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
-        HomePage.nomeImgUser(nome, fotope)
+        
+        
 
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
@@ -28,7 +30,14 @@ export class ApiBlogKenzie {
     }
 
     static async login(userslogin) {
+
+
         console.log(userslogin)
+
+
+        HomePage.nomeImgUser()
+
+
         const loginUser = await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
             headers: this.headers,
@@ -43,6 +52,9 @@ export class ApiBlogKenzie {
                 return resp
             })
             .catch(err => console.log(err))
+
+            
+        
         return loginUser
     }
 

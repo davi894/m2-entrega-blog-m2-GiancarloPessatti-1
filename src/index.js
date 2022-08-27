@@ -23,6 +23,7 @@ const botaocadastrar = document.querySelector("#botaocadastrar")
 botaocadastrar.addEventListener("click", cadastramento)
 
 async function cadastramento() {
+    
     event.preventDefault()
 
     const senhacadastro = document.querySelector("#senhacadastro").value
