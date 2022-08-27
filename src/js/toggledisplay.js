@@ -41,9 +41,6 @@ export function ToggleDeleteButton() {
                 DivPopUpEdit.style.display = "none"
 
             }
-
-
-
         })
     })
 }
