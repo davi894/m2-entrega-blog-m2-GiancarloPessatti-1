@@ -1,68 +1,111 @@
 import { ApiBlogKenzie } from "./api.js"
-import { ToggleDeleteButton } from "./toggledisplay.js"
-import { ToggleEditButton } from "./toggledisplay.js"
+import { ToggleDeleteButton, ToggleEditButton } from "./toggledisplay.js"
 
+class HomePage {
 
+    static renderizarComentarios(arrayComentário) {
 
+        const ul = document.querySelector("ul")
 
-function renderizarComentarios(arrayComentário) {
+        arrayComentário.forEach((element, i, arr) => {
+            /* id objeto  */
+            element.id
+            /* id user */
+            element.user["id"]
 
-    const ul = document.querySelector("ul")
+            const li = document.createElement("li")
+            const divConteudo = document.createElement("div")
 
-    forEach((element, i, arr) => {
-        /* id objeto  */
-        element.id
-        /* id user */
-        element.user["id"]
+            divConteudo.classList.add("conteudo")
 
-        const li = document.createElement("li")
-        const divConteudo = document.createElement("div")
+            const imgPerfil = document.createElement("img")
+            imgPerfil.src = element.user["avatarUrl"]
 
-        divConteudo.classList.add("conteudo")
+            const divTexto = document.createElement("div")
+            divTexto.classList.add("texto")
 
-        const imgPerfil = document.createElement("img")
-        imgPerfil.src = element.user["avatarUrl"]
+            const h2NomeUsuario = document.createElement("h2")
+            h2NomeUsuario.innerText = element.user["username"]
 
-        const divTexto = document.createElement("div")
-        divTexto.classList.add("texto")
+            const pPostarTexto = document.createElement("p")
+            pPostarTexto.innerText = element.content
 
-        const h2NomeUsuario = document.createElement("h2")
-        h2NomeUsuario.innerText = element.user["username"]
+            const divPoster = document.createElement("div")
+            divPoster.classList.add("poster")
 
-        const pPostarTexto = document.createElement("p")
-        pPostarTexto.innerText = element.content
+            const imgEditar = document.createElement("img")
+            imgEditar.classList.add("editar")
+            imgEditar.src = "./src/assents/edit 1.png"
 
-        const divPoster = document.createElement("div")
-        divPoster.classList.add("poster")
+            imgEditar.addEventListener("click", ToggleEditButton)
 
-        const imgEditar = document.createElement("img")
-        imgEditar.classList.add("editar")
-        imgEditar.src
+            const imgDeletar = document.createElement("img")
+            imgDeletar.classList.add("deletar")
+            imgDeletar.src = "./src/assents/trash-bin 1.png"
 
-        imgEditar.addEventListener("click", ToggleEditButton)
+            imgDeletar.addEventListener("click", ToggleDeleteButton)
 
-        const imgDeletar = document.createElement("img")
-        imgDeletar.classList.add("deletar")
-        imgDeletar.src
+            const divDataPost = document.createElement("div")
 
-        imgDeletar.addEventListener("click", ToggleDeleteButton)
+            const spanData = document.createElement("span")
+            spanData.innerText = element.createdAt
 
-        const divDataPost = document.createElement("div")
+            divDataPost.appendChild(spanData)
 
-        const spanData = document.createElement("span")
-        spanData.innerText = element.createdAt
+            divPoster.append(imgEditar, imgDeletar, divDataPost)
 
-        divDataPost.appendChild(spanData)
+            divTexto.append(h2NomeUsuario, pPostarTexto)
 
-        divPoster.append(imgEditar, imgDeletar, divDataPost)
+            divConteudo.append(imgPerfil, divTexto, divPoster)
 
-        divTexto.append(h2NomeUsuario, pPostarTexto)
+            li.appendChild(divConteudo)
 
-        divConteudo.append(imgPerfil, divTexto, divPoster)
+            ul.appendChild(li)
+        });
+    }
 
-        li.appendChild(divConteudo)
+    /* static nomeUsuario = document.querySelector(".nomeUsuario")
+    static fotoperfil = document.querySelector(".FotoPerfil")
 
-        ul.appendChild(li)
-    });
+    static nomeImgUser(nome, fotoPerfil) {
+        this.nomeUsuario.innerHTML = nome
+        this.fotoperfil.src = fotoPerfil
+    }
+ */
 }
+
+class EnviarPost {
+
+    static butonEnviarPost = document.querySelector(".enviarPost")
+
+    static postar() {
+        this.butonEnviarPost.addEventListener("click", (e) => {
+
+            console.log(e.target)
+            const textAreaPost = document.querySelector("textarea").value
+            console.log(textAreaPost)
+        })
+    }
+}
+
+class Logout {
+
+    static logout = document.querySelector(".buttonlogout")
+
+    static sairDapágina() {
+        this.logout.addEventListener("click", (e) => {
+            window.location.replace("/index.html")
+        })
+    }
+}
+
+//HomePage.renderizarComentarios()
+/* HomePage.nomeImgUser() */
+//EnviarPost.postar()
+Logout.sairDapágina()
+
+export { HomePage }
+
+
+
 

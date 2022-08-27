@@ -10,16 +10,21 @@ botaologar.addEventListener("click", async (e) => {
     console.log(e.target)
     console.log(idemaillogin, senhalogar)
 
-    ApiBlogKenzie.login({
-        email: idemaillogin,
-        password: senhalogar
+    let userLogin = ApiBlogKenzie.login({
+        "email": idemaillogin,
+        "password": senhalogar
     })
+
+    return userLogin
 })
 
 const botaocadastrar = document.querySelector("#botaocadastrar")
 
-botaocadastrar.addEventListener("click", async (e) => {
-    
+botaocadastrar.addEventListener("click", cadastramento)
+
+async function cadastramento() {
+    event.preventDefault()
+
     const senhacadastro = document.querySelector("#senhacadastro").value
 
     const Nomecadastro = document.querySelector("#Nomecadastro").value
@@ -28,16 +33,20 @@ botaocadastrar.addEventListener("click", async (e) => {
 
     const imagemcadastro = document.querySelector("#imagemcadastro").value
 
-
     console.log(senhacadastro, Nomecadastro, idemailcadastro, imagemcadastro)
-    console.log(e.target)
 
     await ApiBlogKenzie.cadastro(
         {
-            username: Nomecadastro,
-            email: idemailcadastro,
-            avatarUrl: imagemcadastro,
-            password: senhacadastro
+            "username": Nomecadastro,
+            "email": idemailcadastro,
+            "avatarUrl": imagemcadastro,
+            "password": senhacadastro
         })
+}
 
-})
+
+
+
+
+
+

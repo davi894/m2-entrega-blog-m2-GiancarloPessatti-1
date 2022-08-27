@@ -11,17 +11,20 @@
     <link rel="stylesheet" href="../styles/HomePage/DeleteModal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
     <title>HomePage</title>
 </head>
 
 <body>
     <header>
-
+        <!--  ../assents/download.png -->
+        <!-- Nome do usuário -->
         <div class="imagenPerfil">
-            <img src="../assents/download.png" alt="" class="FotoPerfil">
+            <img src="" alt="" class="FotoPerfil">
             <!--  <div> -->
-            <h2>Nome do usuário </h2>
+            <h2 class="nomeUsuario"> </h2>
             <!--  </div> -->
         </div>
         <div class="logout">
@@ -34,7 +37,8 @@
     <section class="postar">
         <div class="post">
             <!-- <h2 class="pensamento">Em que você está pensado?</h2> -->
-            <textarea placeholder="Em que você está pensado?" class="inputText" name="" id="" cols="0" rows="0"></textarea>
+            <textarea placeholder="Em que você está pensado?" class="inputText" name="" id="" cols="0"
+                rows="0"></textarea>
 
             <div class="button">
                 <button class="enviarPost">POSTAR</button>
@@ -51,7 +55,7 @@
             <h2 class="Editar">EDITAR</h2>
             <input placeholder="Edite seu comentário" type="text" name="" id="inputeditcomentario">
             <button class="botaoenviareditcao">Enviar</button>
-            
+
         </div>
 
     </div>
@@ -63,7 +67,7 @@
 
             <h2 class="deletar">Deseja deletar este post?</h2>
             <button class="botaodeletar">DELETAR</button>
-            
+
         </div>
 
     </div>
@@ -92,7 +96,7 @@
 
         </li>
 
-        <li>
+        <!-- <li>
             <div class="conteudo">
                 <img src="../assents/download.png" alt="" class="FotoPerfil">
                 <div id="texto">
@@ -170,11 +174,14 @@
                 </div>
             </div>
         </li>
-
+ -->
     </ul>
 
     <script type="module" src="../js/HomePage.js"></script>
-    <script type="module" src="../js/toggledisplay.js"></script>
+
+    <scrip type="module" src="../js/toggledisplay.js"></script>
+
+        <script src="../js/PostComent.js"></script>
 
 </body>
 

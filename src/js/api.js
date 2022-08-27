@@ -2,36 +2,51 @@ export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
 
-    static token = localStorage.getItem("BlogKenzie:token")
+    static token = localStorage.getItem("KenzieBlog:Token")
+
+    static headers = {
+        "Content-Type": "application/json",
+        Authorization: ` Bearer ${this.token}`
+    }
 
     static async cadastro(usersCadastro) {
-        await fetch(`${this.URLbase}/users/register`, {
+
+        const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: this.headers,
             body: JSON.stringify(usersCadastro)
         })
             .then(resp => resp.json())
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
+
+        return cadastando
     }
 
     static async login(userslogin) {
-        await fetch(`${this.URLbase}/users/login`, {
+        console.log(userslogin)
+        const loginUser = await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: this.headers,
             body: JSON.stringify(userslogin),
         })
             .then(resp => resp.json())
+            .then(resp => {
+                window.location.replace("../src/html/HomePage.html")
+                localStorage.setItem("KenziBlog:id", resp.id)
+                localStorage.setItem("KenzieBlog: token", resp.token)
+                console.log(resp)
+                return resp
+            })
+            .catch(err => console.log(err))
+        return loginUser
     }
 
     static async buscarInformacoresDoUsuarios(id) {
 
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.token}`
-            }
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -41,8 +56,7 @@ export class ApiBlogKenzie {
     static async mudancaDePagina(id) {
         await fetch(`${this.URLbase}/${id}`, {
             method: "GET",
-            headers: { "Content-Type": "application/json" },
-            "Authorization": `Bearer ${this.token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -52,10 +66,7 @@ export class ApiBlogKenzie {
     static async pegarInformacoesPost(id) {
         await fetch(`${this.URLbase}/users/${id}`, {
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.token}`
-            },
+            headers: this.headers
 
         })
             .then(resp => resp.json())
@@ -67,7 +78,7 @@ export class ApiBlogKenzie {
         await fetch(`${this.URLbase}/posts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            Authorization: `Bearer ${this.token()}`,
+            Authorization: this.headers,
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
@@ -78,10 +89,7 @@ export class ApiBlogKenzie {
     static async atualizarConteudoPost(id, conteudo) {
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.token}`,
-            },
+            headers: this.headers,
             body: JSON.stringify(conteudo)
         })
             .then(resp => resp.json())
@@ -92,10 +100,7 @@ export class ApiBlogKenzie {
     static async deletarPost(id) {
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.token}`
-            },
+            headers: this.headers
         })
     }
 }

@@ -1,16 +1,17 @@
 import { ApiBlogKenzie } from "./api.js"
 
+class buscandoInfoUser {
 
-function buscarDadosUser(array) {
+    static buscarDadosUser(array) {
 
-    const inptEx = document.querySelector("input")
+        const inptEx = document.querySelector("input")
 
-    array.forEach(async (element, i, arr) => {
+        array.forEach(async (element, i, arr) => {
 
-        if (element.user["id"] == inptEx.value) {
-            await ApiBlogKenzie.buscarInformacoresDoUsuarios(element.user["id"])
-        }
-
-    });
-
+            if (element.user["id"] == inptEx.value) {
+                await ApiBlogKenzie.buscarInformacoresDoUsuarios(element.user["id"])
+            }
+        });
+    }
 }
+buscandoInfoUser.buscarDadosUser()
