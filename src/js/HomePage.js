@@ -1,7 +1,36 @@
 import { ApiBlogKenzie } from "./api.js"
 import { ToggleDeleteButton, ToggleEditButton } from "./toggledisplay.js"
+const arrayComentário = [
+    {
+    "id": 2,
+    "content": "content",
+    "createdAt": "2022-07-01T00:00:00.000Z",
+    "user": {
+      "id": 1,
+      "username": "teste",
+      "avatarUrl": "https://github.com/phmc99.png"
+    }},
+    {
+        "id": 2,
+        "content": "content",
+        "createdAt": "2022-07-01T00:00:00.000Z",
+        "user": {
+          "id": 1,
+          "username": "teste",
+          "avatarUrl": "https://github.com/phmc99.png"
+        }},
+        {
+            "id": 2,
+            "content": "content",
+            "createdAt": "2022-07-01T00:00:00.000Z",
+            "user": {
+              "id": 1,
+              "username": "teste",
+              "avatarUrl": "https://github.com/phmc99.png"
+            }}]
 
 class HomePage {
+
 
     static renderizarComentarios(arrayComentário) {
 
@@ -64,14 +93,16 @@ class HomePage {
         });
     }
 
-    /* static nomeUsuario = document.querySelector(".nomeUsuario")
+    static nomeUsuario = document.querySelector(".nomeUsuario")
     static fotoperfil = document.querySelector(".FotoPerfil")
 
     static nomeImgUser(nome, fotoPerfil) {
+        console.log(nome)
+        console.log(fotoPerfil)
         this.nomeUsuario.innerHTML = nome
         this.fotoperfil.src = fotoPerfil
     }
- */
+ 
 }
 
 class EnviarPost {
@@ -109,8 +140,8 @@ class Logout {
     }
 }
 
-// HomePage.renderizarComentarios()
-// HomePage.nomeImgUser() 
+HomePage.renderizarComentarios(arrayComentário)
+HomePage.nomeImgUser() 
 EnviarPost.postar()
 Logout.sairDapágina()
 

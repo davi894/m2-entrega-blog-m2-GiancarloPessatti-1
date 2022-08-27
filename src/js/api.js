@@ -11,14 +11,18 @@ export class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
+        HomePage.nomeImgUser(nome, fotope)
+
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(usersCadastro)
         })
+
             .then(resp => resp.json())
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
+
 
         return cadastando
     }
@@ -33,7 +37,7 @@ export class ApiBlogKenzie {
             .then(resp => resp.json())
             .then(resp => {
                 window.location.replace("./src/html/HomePage.html")
-                localStorage.setItem("KenziBlog:id", resp.id)
+                localStorage.setItem("KenziBlog: id", resp.userId)
                 localStorage.setItem("KenzieBlog: token", resp.token)
                 console.log(resp)
                 return resp
