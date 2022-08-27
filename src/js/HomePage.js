@@ -2,35 +2,32 @@ import { ApiBlogKenzie } from "./api.js"
 import { ToggleDeleteButton, ToggleEditButton } from "./toggledisplay.js"
 const arrayComentário = [
     {
-        "id": 2,
-        "content": "content",
-        "createdAt": "2022-07-01T00:00:00.000Z",
-        "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    },
+    "id": 2,
+    "content": "content",
+    "createdAt": "2022-07-01T00:00:00.000Z",
+    "user": {
+      "id": 1,
+      "username": "teste",
+      "avatarUrl": "https://github.com/phmc99.png"
+    }},
     {
         "id": 2,
         "content": "content",
         "createdAt": "2022-07-01T00:00:00.000Z",
         "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    },
-    {
-        "id": 2,
-        "content": "content",
-        "createdAt": "2022-07-01T00:00:00.000Z",
-        "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    }]
+          "id": 1,
+          "username": "teste",
+          "avatarUrl": "https://github.com/phmc99.png"
+        }},
+        {
+            "id": 2,
+            "content": "content",
+            "createdAt": "2022-07-01T00:00:00.000Z",
+            "user": {
+              "id": 1,
+              "username": "teste",
+              "avatarUrl": "https://github.com/phmc99.png"
+            }}]
 
 class HomePage {
 
@@ -97,7 +94,7 @@ class HomePage {
         });
     }
 
-
+   
 
     static nomeImgUser(usersCadastro) {
 
@@ -112,7 +109,7 @@ class HomePage {
         nomeUsuario.innerHTML = usersCadastro.username
         fotoperfil.src = usersCadastro.avatarUrl
     }
-
+ 
 }
 
 class EnviarPost {
@@ -129,11 +126,11 @@ class EnviarPost {
             console.log(textAreaPost)
             let conteudo = {
 
-                conteudo: textAreaPost,
-                Id: IdPost
+                conteudo : textAreaPost,
+                Id : IdPost
 
             }
-            ApiBlogKenzie.criarNovoPost({ content: conteudo })
+            ApiBlogKenzie.criarNovoPost({content : conteudo})
 
         })
     }
@@ -145,9 +142,13 @@ class Logout {
 
     static sairDapágina() {
         this.logout.addEventListener("click", (e) => {
-            window.location.replace("/index.html")
+            window.location.replace("./m2-entrega-blog-m2-GiancarloPessatti-1/index.html")
         })
+
+
     }
+
+
 }
 
 // HomePage.renderizarComentarios(arrayComentário)
