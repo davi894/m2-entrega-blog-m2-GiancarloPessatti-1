@@ -3,7 +3,9 @@ export function ToggleEditButton() {
     let button = document.querySelectorAll(".editar")
     let arraybutton = [...button]
     arraybutton.forEach(buttonedit => {
-        buttonedit.addEventListener("click", () => {
+        console.log(buttonedit)
+        buttonedit.addEventListener("click", (e) => {
+            console.log(e)
 
             const DivPopUpEdit = document.querySelector(".editposts")
 
@@ -57,7 +59,7 @@ class ButtonsDeletarEditarPost {
 
 
     static deletarPost() {
-        this.buttonDeletar.addEventListener("click",(e)=>{
+        this.buttonDeletar.addEventListener("click", (e) => {
 
 
         })

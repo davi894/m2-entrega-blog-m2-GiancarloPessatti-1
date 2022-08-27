@@ -49,7 +49,7 @@ export class ApiBlogKenzie {
 
     static async pegarInformacoesPost(IdUsuario) {
 
-        
+
         await fetch(`${this.URLbase}/posts/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
@@ -71,19 +71,19 @@ export class ApiBlogKenzie {
 
     static async buscarInformacoresDoUsuarios(IdUsuario) {
 
-      let infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
+        let infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
 
         })
             .then(resp => resp.json())
-            // .then(resp => console.log(resp))
+        // .then(resp => console.log(resp))
 
-         
-           return infusuario
-           
+
+        return infusuario
+
     }
-    
+
     static async criarNovoPost(poster) {
         await fetch(`${this.URLbase}/posts`, {
             method: "POST",
@@ -92,19 +92,42 @@ export class ApiBlogKenzie {
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
     static async atualizarConteudoPost(id, conteudo) {
+
+        console.log(id, conteudo)
+        /* 
+        conteudo = {
+          "content": "new content"
+        }
+        
+        */
+
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "PATCH",
             headers: this.headers,
             body: JSON.stringify(conteudo)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
+
+        /*
+        resposta
+        {
+             "id": 2,
+             "content": "new content",
+             "createdAt": "2022-07-01T00:00:00.000Z",
+             "updatedAt": "2022-07-01T00:00:00.000Z",
+             "user": {
+               "id": 1,
+               "username": "teste",
+               "avatarUrl": "https://github.com/phmc99.png"
+             }
+         } */
     }
 
     static async deletarPost(id) {
