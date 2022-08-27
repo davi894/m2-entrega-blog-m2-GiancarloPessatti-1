@@ -3,6 +3,8 @@ export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
 
+    static IdUsuario = localStorage.getItem("KenzieBlog:Id")
+
     static token = localStorage.getItem("KenzieBlog:Token")
 
     static headers = {
@@ -45,9 +47,10 @@ export class ApiBlogKenzie {
 
     }
 
-    static async buscarInformacoresDoUsuarios(id) {
+    static async pegarInformacoesPost(IdUsuario) {
 
-        await fetch(`${this.URLbase}/posts/${id}`, {
+        
+        await fetch(`${this.URLbase}/posts/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
         })
@@ -66,17 +69,21 @@ export class ApiBlogKenzie {
             .catch(err => console.log(err))
     }
 
-    static async pegarInformacoesPost(id) {
-        await fetch(`${this.URLbase}/users/${id}`, {
+    static async buscarInformacoresDoUsuarios(IdUsuario) {
+
+      let infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
 
         })
             .then(resp => resp.json())
-            .then(resp => resp)
-            .catch(err => console.log(err))
-    }
+            // .then(resp => console.log(resp))
 
+         
+           return infusuario
+           
+    }
+    
     static async criarNovoPost(poster) {
         await fetch(`${this.URLbase}/posts`, {
             method: "POST",

@@ -1,5 +1,6 @@
 import { ApiBlogKenzie } from "./api.js"
 import { ToggleDeleteButton, ToggleEditButton } from "./toggledisplay.js"
+
 const arrayComentário = [
     {
         "id": 2,
@@ -31,7 +32,18 @@ const arrayComentário = [
             "avatarUrl": "https://github.com/phmc99.png"
         }
     }]
+
+
+
 class HomePage {
+
+    static async PegarinfUsuario() {
+
+        let idusuario = localStorage.getItem("KenziBlog:Id")
+        return await ApiBlogKenzie.buscarInformacoresDoUsuarios(idusuario)
+
+    }
+
     static renderizarComentarios(arrayComentário) {
         const ul = document.querySelector("ul")
         arrayComentário.forEach((element, i, arr) => {
@@ -64,7 +76,7 @@ class HomePage {
             const divDataPost = document.createElement("div")
             const spanData = document.createElement("span")
             spanData.innerText = element.createdAt
-            console.log([element.createdAt].split(""))
+            // console.log([element.createdAt].split(""))
             divDataPost.appendChild(spanData)
             divPoster.append(imgEditar, imgDeletar, divDataPost)
             divTexto.append(h2NomeUsuario, pPostarTexto)
@@ -73,12 +85,12 @@ class HomePage {
             ul.appendChild(li)
         });
     }
-    static nomeImgUser(usersCadastro) {
+    static async nomeImgUser() {
         const nomeUsuario = document.querySelector(".nomeUsuario")
         const fotoperfil = document.querySelector(".FotoPerfil")
-        console.log(usersCadastro)
-        nomeUsuario.innerHTML = usersCadastro.username
-        fotoperfil.src = usersCadastro.avatarUrl
+        let infusuario = await HomePage.PegarinfUsuario()
+        nomeUsuario.innerHTML = infusuario.username
+        fotoperfil.src = infusuario.avatarUrl
     }
 }
 class EnviarPost {
@@ -106,7 +118,12 @@ class Logout {
     }
 }
 HomePage.renderizarComentarios(arrayComentário)
+HomePage.PegarinfUsuario()
 HomePage.nomeImgUser()
 EnviarPost.postar()
 Logout.sairDapágina()
+
+
+
+
 export { HomePage }
