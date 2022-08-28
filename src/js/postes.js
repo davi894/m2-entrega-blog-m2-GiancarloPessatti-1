@@ -15,13 +15,13 @@ class Postes {
     }
     static editarPost(id) {
         const atualizarPost = document.querySelector(".botaoenviareditcao")
-        atualizarPost.addEventListener("click", (e) => {
+        atualizarPost.addEventListener("click", async (e) => {
             const inputEditarTesto = document.querySelector("#inputeditcomentario").value
-            if (id === e.target.id) {
+            if (id) {
                 let editaPost = {
                     content: textAreaPost
                 }
-                ApiBlogKenzie.atualizarConteudoPost(id, { content: editaPost })
+                await ApiBlogKenzie.atualizarConteudoPost(id, { content: editaPost })
             }
             console.log(e.target)
             console.log(inputEditarTesto)
@@ -36,18 +36,17 @@ class Postes {
 
     static deletarPost(id) {
         const deletarPost = document.querySelector(".botaodeletar")
-        deletarPost.addEventListener("click", (e) => {
-            if (id === e.target.id) {
-                ApiBlogKenzie.deletarPost(id)
+        deletarPost.addEventListener("click", async (e) => {
+            if (id) {
+                await ApiBlogKenzie.deletarPost(id)
             }
             console.log(e.target)
         })
     }
     static async buscarpostUsuario() {
 
-        const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost()
+        const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost(1)
         console.log(infoUsuario)
-
     }
 }
 

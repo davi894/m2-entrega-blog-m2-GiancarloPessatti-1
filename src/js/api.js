@@ -14,24 +14,18 @@ class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
-        const cadastando = await fetch(`${this.URLbase}/users/register`, {
+        return await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(usersCadastro)
         })
 
             .then(resp => resp.json())
-        /*   .then(resp => console.log(resp))
-          .catch(err => console.log(err)) */
-
-        return cadastando
     }
 
     static async login(userslogin) {
 
-        console.log(userslogin)
-
-        const loginUser = await fetch(`${this.URLbase}/users/login`, {
+        await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(userslogin),
@@ -49,39 +43,35 @@ class ApiBlogKenzie {
                 /* 
                  deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk => m2-entrega-blog-m2-GiancarloPessatti-1/html
                 */
-
             })
             .catch(err => console.log(err))
     }
 
     static async mudancaDePagina() {
 
-       return await fetch(`${this.URLbase}/posts?page=1`, {
+        return await fetch(`${this.URLbase}/posts?page=1`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
     }
 
-    static async pegarInformacoesPost (id) {
-        await fetch(`${this.URLbase}/${id}`, {
+    static async pegarInformacoesPost(id) {
+        return await fetch(`${this.URLbase}/${id}`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
     }
 
     static async buscarInformacoresDoUsuarios(IdUsuario) {
 
-        const infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
+        return await fetch(`${this.URLbase}/users/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
 
         })
             .then(resp => resp.json())
-        return infusuario
 
     }
 
@@ -92,20 +82,13 @@ class ApiBlogKenzie {
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
-            // .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
     static async atualizarConteudoPost(id, conteudo) {
 
         console.log(id, conteudo)
-        /* 
-        conteudo = {
-          "content": "new content"
-        }
-        
-        */
-
+       
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "PATCH",
             headers: this.headers,

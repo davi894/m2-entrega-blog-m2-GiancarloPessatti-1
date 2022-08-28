@@ -67,7 +67,6 @@ class HomePage {
     }
     static async PegarinfUsuario() {
         const idusuario = localStorage.getItem("KenziBlog:Id")
-        console.log(idusuario)
         return await ApiBlogKenzie.buscarInformacoresDoUsuarios(idusuario)
     }
     static async nomeImgUser() {
