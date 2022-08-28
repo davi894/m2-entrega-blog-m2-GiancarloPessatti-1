@@ -32,7 +32,6 @@ const arrayComentário = [
             "avatarUrl": "https://github.com/phmc99.png"
         }
     }]
-
 class HomePage {
 
     static renderizarComentarios(arrayComentário) {
@@ -90,15 +89,15 @@ class HomePage {
 
             const divDataPost = document.createElement("div")
 
-            let btnEnviarPostEditado = document.querySelector(".botaoenviareditcao")
+            const btnEnviarPostEditado = document.querySelector(".botaoenviareditcao")
             btnEnviarPostEditado.id = element.user["id"]
 
-            let btnDeletarPost = document.querySelector(".enviarPost")
+            const btnDeletarPost = document.querySelector(".enviarPost")
             btnDeletarPost.id = element.user["id"]
 
             const data = element.createdAt.split("")
 
-            let dataTempoConvertido = `${data[0]}${data[1]}${data[2]}${data[3]}${data[4]}${data[5]}${data[6]}${data[7]}${data[8]}${data[9]}`
+            const dataTempoConvertido = `${data[0]}${data[1]}${data[2]}${data[3]}${data[4]}${data[5]}${data[6]}${data[7]}${data[8]}${data[9]}`
 
             const spanData = document.createElement("span")
             spanData.innerText = dataTempoConvertido
@@ -131,11 +130,7 @@ class HomePage {
         fotoperfil.src = infusuario.avatarUrl
     }
 
-    static async buscarpostUsuario() {
 
-        const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost()
-        console.log(infoUsuario)
-    }
 }
 class Postes {
 
@@ -188,11 +183,16 @@ class Postes {
             console.log(e.target)
         })
     }
+    static async buscarpostUsuario() {
+
+        const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost()
+        console.log(infoUsuario)
+    }
 }
 class Logout {
-    static logout = document.querySelector(".buttonlogout")
     static sairDapágina() {
-        this.logout.addEventListener("click", (e) => {
+        const logout = document.querySelector(".buttonlogout")
+        logout.addEventListener("click", (e) => {
             window.location.replace("/index.html")
         })
     }
@@ -206,11 +206,11 @@ HomePage.nomeImgUser()
 
 HomePage.PegarinfUsuario()
 
-HomePage.buscarpostUsuario()
-
 Postes.postar()
 
 Postes.editarPost()
+
+Postes.buscarpostUsuario()
 
 Postes.deletarPost()
 

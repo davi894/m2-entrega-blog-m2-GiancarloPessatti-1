@@ -52,7 +52,6 @@ class ApiBlogKenzie {
 
             })
             .catch(err => console.log(err))
-
     }
 
     static async pegarInformacoesPost(IdUsuario) {
