@@ -1,5 +1,4 @@
 import { ApiBlogKenzie } from "./api.js"
-
 class Postes {
     static postar() {
         const usuarioTokken = ApiBlogKenzie.token
