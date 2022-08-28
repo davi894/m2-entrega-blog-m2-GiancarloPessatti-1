@@ -1,36 +1,10 @@
 import { ApiBlogKenzie } from "./api.js"
 import { ButtonsDeletarEditarPost } from "./toggledisplay.js"
-const arrayComentário = [
-    {
-        "id": 2,
-        "content": "content",
-        "createdAt": "2022-07-01T00:00:00.000Z",
-        "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    },
-    {
-        "id": 2,
-        "content": "content",
-        "createdAt": "2022-07-01T00:00:00.000Z",
-        "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    },
-    {
-        "id": 2,
-        "content": "content",
-        "createdAt": "2022-07-01T00:00:00.000Z",
-        "user": {
-            "id": 1,
-            "username": "teste",
-            "avatarUrl": "https://github.com/phmc99.png"
-        }
-    }]
+
+let arrayComentário = await ApiBlogKenzie.pegarInformacoesPost()
+let dataarray = arrayComentário.data
+
+
 class HomePage {
     static renderizarComentarios(arrayComentário) {
         const ul = document.querySelector("ul")
@@ -108,11 +82,11 @@ class Postes {
             const IdPost = document.querySelector("li").id
             const textAreaPost = document.querySelector("textarea").value
             console.log(textAreaPost)
-            const conteudo = {
-                conteudo: textAreaPost,
-                Id: IdPost
-            }
-            ApiBlogKenzie.criarNovoPost({ content: conteudo })
+            // const conteudo = {
+            //     conteudo: textAreaPost,
+            //     Id: IdPost
+            // }
+            ApiBlogKenzie.criarNovoPost({content: textAreaPost})
         })
     }
     static editarPost(id) {
@@ -140,7 +114,7 @@ class Postes {
     }
     static async buscarpostUsuario() {
         const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost()
-        console.log(infoUsuario)
+        
     }
 }
 class Logout {
@@ -154,7 +128,7 @@ class Logout {
 /*
 deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk =>./m2-entrega-blog-m2-GiancarloPessatti-1
  */
-HomePage.renderizarComentarios(arrayComentário)
+HomePage.renderizarComentarios(dataarray)
 HomePage.nomeImgUser()
 HomePage.PegarinfUsuario()
 Postes.postar()
