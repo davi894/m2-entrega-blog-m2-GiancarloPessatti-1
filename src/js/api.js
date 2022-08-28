@@ -1,5 +1,5 @@
 
-export class ApiBlogKenzie {
+class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
 
@@ -9,7 +9,7 @@ export class ApiBlogKenzie {
 
     static headers = {
         "Content-Type": "application/json",
-        Authorization: ` Bearer ${this.token}`
+        Authorization: `Bearer ${this.token}`
     }
 
     static async cadastro(usersCadastro) {
@@ -21,9 +21,8 @@ export class ApiBlogKenzie {
         })
 
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
-
+        /*   .then(resp => console.log(resp))
+          .catch(err => console.log(err)) */
 
         return cadastando
     }
@@ -42,6 +41,15 @@ export class ApiBlogKenzie {
                 localStorage.setItem("KenziBlog:Id", resp.userId)
                 localStorage.setItem("KenzieBlog:Token", resp.token)
                 window.location.replace("./src/html/HomePage.html")
+
+                localStorage.setItem("KenziBlog: id", resp.userId)
+                localStorage.setItem("KenzieBlog: token", resp.token)
+                console.log(resp)
+                return resp
+                /* 
+                 deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk => m2-entrega-blog-m2-GiancarloPessatti-1/html
+                */
+
             })
             .catch(err => console.log(err))
 
@@ -49,13 +57,12 @@ export class ApiBlogKenzie {
 
     static async pegarInformacoesPost(IdUsuario) {
 
-
         await fetch(`${this.URLbase}/posts/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
@@ -65,21 +72,18 @@ export class ApiBlogKenzie {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
     static async buscarInformacoresDoUsuarios(IdUsuario) {
 
-        let infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
+        const infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
 
         })
             .then(resp => resp.json())
-        // .then(resp => console.log(resp))
-
-
         return infusuario
 
     }
@@ -87,8 +91,7 @@ export class ApiBlogKenzie {
     static async criarNovoPost(poster) {
         await fetch(`${this.URLbase}/posts`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            Authorization: this.headers,
+            headers: this.headers,
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
@@ -137,3 +140,4 @@ export class ApiBlogKenzie {
         })
     }
 }
+export { ApiBlogKenzie }
