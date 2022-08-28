@@ -68,7 +68,6 @@ class HomePage {
             const imgEditar = document.createElement("img")
             imgEditar.classList.add("editar")
             imgEditar.src = "../assents/edit 1.png"
-            imgEditar.src = element.user["id"]
 
             imgEditar.addEventListener("click", ToggleEditButton)
 

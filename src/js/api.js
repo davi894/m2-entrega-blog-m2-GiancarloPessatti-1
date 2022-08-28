@@ -1,5 +1,4 @@
 
-
 export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
