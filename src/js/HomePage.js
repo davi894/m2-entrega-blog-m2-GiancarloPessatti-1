@@ -2,35 +2,37 @@ import { ApiBlogKenzie } from "./api.js"
 import { ToggleDeleteButton, ToggleEditButton } from "./toggledisplay.js"
 const arrayComentário = [
     {
-    "id": 2,
-    "content": "content",
-    "createdAt": "2022-07-01T00:00:00.000Z",
-    "user": {
-      "id": 1,
-      "username": "teste",
-      "avatarUrl": "https://github.com/phmc99.png"
-    }},
+        "id": 2,
+        "content": "content",
+        "createdAt": "2022-07-01T00:00:00.000Z",
+        "user": {
+            "id": 1,
+            "username": "teste",
+            "avatarUrl": "https://github.com/phmc99.png"
+        }
+    },
     {
         "id": 2,
         "content": "content",
         "createdAt": "2022-07-01T00:00:00.000Z",
         "user": {
-          "id": 1,
-          "username": "teste",
-          "avatarUrl": "https://github.com/phmc99.png"
-        }},
-        {
-            "id": 2,
-            "content": "content",
-            "createdAt": "2022-07-01T00:00:00.000Z",
-            "user": {
-              "id": 1,
-              "username": "teste",
-              "avatarUrl": "https://github.com/phmc99.png"
-            }}]
+            "id": 1,
+            "username": "teste",
+            "avatarUrl": "https://github.com/phmc99.png"
+        }
+    },
+    {
+        "id": 2,
+        "content": "content",
+        "createdAt": "2022-07-01T00:00:00.000Z",
+        "user": {
+            "id": 1,
+            "username": "teste",
+            "avatarUrl": "https://github.com/phmc99.png"
+        }
+    }]
 
 class HomePage {
-
 
     static renderizarComentarios(arrayComentário) {
 
@@ -49,6 +51,7 @@ class HomePage {
 
             const imgPerfil = document.createElement("img")
             imgPerfil.src = element.user["avatarUrl"]
+            imgPerfil.classList.add("FotoPerfil")
 
             const divTexto = document.createElement("div")
             divTexto.classList.add("texto")
@@ -64,20 +67,32 @@ class HomePage {
 
             const imgEditar = document.createElement("img")
             imgEditar.classList.add("editar")
-            imgEditar.src = "./src/assents/edit 1.png"
+            imgEditar.src = "../assents/edit 1.png"
+            imgEditar.src = element.user["id"]
 
             imgEditar.addEventListener("click", ToggleEditButton)
 
             const imgDeletar = document.createElement("img")
             imgDeletar.classList.add("deletar")
-            imgDeletar.src = "./src/assents/trash-bin 1.png"
+            imgDeletar.src = "../assents/trash-bin 1.png"
+            imgDeletar.id = element.user["id"]
 
             imgDeletar.addEventListener("click", ToggleDeleteButton)
 
             const divDataPost = document.createElement("div")
 
+            let btnEnviarPostEditado = document.querySelector(".botaoenviareditcao")
+            btnEnviarPostEditado.id = element.user["id"]
+
+            let btnDeletarPost = document.querySelector(".enviarPost")
+            btnDeletarPost.id = element.user["id"]
+
+            const data = element.createdAt.split("")
+
+            let dataFormatada = `${data[0]}${data[1]}${data[2]}${data[3]}${data[4]}${data[5]}${data[6]}${data[7]}${data[8]}${data[9]}`
+
             const spanData = document.createElement("span")
-            spanData.innerText = element.createdAt
+            spanData.innerText = dataFormatada
 
             divDataPost.appendChild(spanData)
 
@@ -87,7 +102,7 @@ class HomePage {
 
             divConteudo.append(imgPerfil, divTexto, divPoster)
 
-            li.appendChild(divConteudo)
+            li.append(divConteudo, divPoster)
 
             ul.appendChild(li)
         });
@@ -102,7 +117,7 @@ class HomePage {
         this.nomeUsuario.innerHTML = nome
         this.fotoperfil.src = fotoPerfil
     }
- 
+
 }
 
 class EnviarPost {
@@ -119,11 +134,11 @@ class EnviarPost {
             console.log(textAreaPost)
             let conteudo = {
 
-                conteudo : textAreaPost,
-                Id : IdPost
+                conteudo: textAreaPost,
+                Id: IdPost
 
             }
-            ApiBlogKenzie.criarNovoPost({content : conteudo})
+            ApiBlogKenzie.criarNovoPost({ content: conteudo })
 
         })
     }
@@ -135,13 +150,15 @@ class Logout {
 
     static sairDapágina() {
         this.logout.addEventListener("click", (e) => {
-            window.location.replace("/m2-entrega-blog-m2-GiancarloPessatti-1/index.html")
+            window.location.replace("/index.html")
         })
     }
 }
-
+/*
+deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk =>./m2-entrega-blog-m2-GiancarloPessatti-1 
+ */
 HomePage.renderizarComentarios(arrayComentário)
-HomePage.nomeImgUser() 
+HomePage.nomeImgUser()
 EnviarPost.postar()
 Logout.sairDapágina()
 

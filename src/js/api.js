@@ -1,3 +1,5 @@
+
+
 export class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
@@ -6,12 +8,12 @@ export class ApiBlogKenzie {
 
     static headers = {
         "Content-Type": "application/json",
-        Authorization: ` Bearer ${this.token}`
+        Authorization: `Bearer ${this.token}`
     }
 
     static async cadastro(usersCadastro) {
 
-        HomePage.nomeImgUser(nome, fotope)
+        /*  HomePage.nomeImgUser(nome, fotope) */
 
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
@@ -41,6 +43,9 @@ export class ApiBlogKenzie {
                 localStorage.setItem("KenzieBlog: token", resp.token)
                 console.log(resp)
                 return resp
+                /* 
+                 deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk => m2-entrega-blog-m2-GiancarloPessatti-1/html
+                */
             })
             .catch(err => console.log(err))
         return loginUser
@@ -53,7 +58,7 @@ export class ApiBlogKenzie {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
@@ -63,7 +68,7 @@ export class ApiBlogKenzie {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
@@ -74,7 +79,7 @@ export class ApiBlogKenzie {
 
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
@@ -86,7 +91,7 @@ export class ApiBlogKenzie {
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
@@ -97,7 +102,7 @@ export class ApiBlogKenzie {
             body: JSON.stringify(conteudo)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
