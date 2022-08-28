@@ -1,7 +1,9 @@
 
-export class ApiBlogKenzie {
+class ApiBlogKenzie {
 
     static URLbase = `https://blog-m2.herokuapp.com`
+
+    static IdUsuario = localStorage.getItem("KenzieBlog:Id")
 
     static token = localStorage.getItem("KenzieBlog:Token")
 
@@ -12,8 +14,6 @@ export class ApiBlogKenzie {
 
     static async cadastro(usersCadastro) {
 
-        /*  HomePage.nomeImgUser(nome, fotope) */
-
         const cadastando = await fetch(`${this.URLbase}/users/register`, {
             method: "POST",
             headers: this.headers,
@@ -21,15 +21,16 @@ export class ApiBlogKenzie {
         })
 
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
-
+        /*   .then(resp => console.log(resp))
+          .catch(err => console.log(err)) */
 
         return cadastando
     }
 
     static async login(userslogin) {
+
         console.log(userslogin)
+
         const loginUser = await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
             headers: this.headers,
@@ -37,7 +38,10 @@ export class ApiBlogKenzie {
         })
             .then(resp => resp.json())
             .then(resp => {
+                localStorage.setItem("KenziBlog:Id", resp.userId)
+                localStorage.setItem("KenzieBlog:Token", resp.token)
                 window.location.replace("./src/html/HomePage.html")
+
                 localStorage.setItem("KenziBlog: id", resp.userId)
                 localStorage.setItem("KenzieBlog: token", resp.token)
                 console.log(resp)
@@ -45,14 +49,15 @@ export class ApiBlogKenzie {
                 /* 
                  deixei salvo pra não ter mais problema, agora é só colcar esse aqui ksksksk => m2-entrega-blog-m2-GiancarloPessatti-1/html
                 */
+
             })
             .catch(err => console.log(err))
-        return loginUser
+
     }
 
-    static async buscarInformacoresDoUsuarios(id) {
+    static async pegarInformacoesPost(IdUsuario) {
 
-        await fetch(`${this.URLbase}/posts/${id}`, {
+        await fetch(`${this.URLbase}/posts/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
         })
@@ -71,22 +76,22 @@ export class ApiBlogKenzie {
             .catch(err => console.log(err))
     }
 
-    static async pegarInformacoesPost(id) {
-        await fetch(`${this.URLbase}/users/${id}`, {
+    static async buscarInformacoresDoUsuarios(IdUsuario) {
+
+        const infusuario = await fetch(`${this.URLbase}/users/${IdUsuario}`, {
             method: "GET",
             headers: this.headers
 
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
+        return infusuario
+
     }
 
     static async criarNovoPost(poster) {
         await fetch(`${this.URLbase}/posts`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            Authorization: this.headers,
+            headers: this.headers,
             body: JSON.stringify(poster)
         })
             .then(resp => resp.json())
@@ -95,6 +100,15 @@ export class ApiBlogKenzie {
     }
 
     static async atualizarConteudoPost(id, conteudo) {
+
+        console.log(id, conteudo)
+        /* 
+        conteudo = {
+          "content": "new content"
+        }
+        
+        */
+
         await fetch(`${this.URLbase}/posts/${id}`, {
             method: "PATCH",
             headers: this.headers,
@@ -103,6 +117,20 @@ export class ApiBlogKenzie {
             .then(resp => resp.json())
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
+
+        /*
+        resposta
+        {
+             "id": 2,
+             "content": "new content",
+             "createdAt": "2022-07-01T00:00:00.000Z",
+             "updatedAt": "2022-07-01T00:00:00.000Z",
+             "user": {
+               "id": 1,
+               "username": "teste",
+               "avatarUrl": "https://github.com/phmc99.png"
+             }
+         } */
     }
 
     static async deletarPost(id) {
@@ -112,3 +140,4 @@ export class ApiBlogKenzie {
         })
     }
 }
+export { ApiBlogKenzie }

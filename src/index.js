@@ -7,9 +7,6 @@ botaologar.addEventListener("click", async (e) => {
     const idemaillogin = document.querySelector("#idemaillogin").value
     const senhalogar = document.querySelector("#senhalogar").value
 
-    // console.log(e.target)
-    // console.log(idemaillogin, senhalogar)
-
     let userLogin = await ApiBlogKenzie.login({
         "email": idemaillogin,
         "password": senhalogar
@@ -23,6 +20,7 @@ const botaocadastrar = document.querySelector("#botaocadastrar")
 botaocadastrar.addEventListener("click", cadastramento)
 
 async function cadastramento() {
+    
     event.preventDefault()
 
     const senhacadastro = document.querySelector("#senhacadastro").value
