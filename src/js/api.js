@@ -54,18 +54,16 @@ class ApiBlogKenzie {
             .catch(err => console.log(err))
     }
 
-    static async pegarInformacoesPost(IdUsuario) {
+    static async mudancaDePagina() {
 
        return await fetch(`${this.URLbase}/posts?page=1`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
-           
-           
     }
 
-    static async mudancaDePagina(id) {
+    static async pegarInformacoesPost (id) {
         await fetch(`${this.URLbase}/${id}`, {
             method: "GET",
             headers: this.headers

@@ -1,7 +1,8 @@
 import { ApiBlogKenzie } from "./api.js"
+import { Postes } from "./postes.js"
 import { ButtonsDeletarEditarPost } from "./toggledisplay.js"
 
-const arrayComentário = await ApiBlogKenzie.pegarInformacoesPost()
+const arrayComentário = await ApiBlogKenzie.mudancaDePagina()
 const dataarray = arrayComentário.data
 
 class HomePage {
@@ -66,6 +67,7 @@ class HomePage {
     }
     static async PegarinfUsuario() {
         const idusuario = localStorage.getItem("KenziBlog:Id")
+        console.log(idusuario)
         return await ApiBlogKenzie.buscarInformacoresDoUsuarios(idusuario)
     }
     static async nomeImgUser() {
@@ -76,50 +78,7 @@ class HomePage {
         fotoperfil.src = infusuario.avatarUrl
     }
 }
-class Postes {
-    static postar() {
-        const usuarioTokken = ApiBlogKenzie.token
-        const butonEnviarPost = document.querySelector(".enviarPost")
-        butonEnviarPost.addEventListener("click", (e) => {
-            console.log(e.target)
-            const IdPost = document.querySelector("li").id
-            const textAreaPost = document.querySelector("textarea").value
-            console.log(textAreaPost)
-         
-            ApiBlogKenzie.criarNovoPost({content: textAreaPost})
-        })
-    }
-    static editarPost(id) {
-        const atualizarPost = document.querySelector(".botaoenviareditcao")
-        atualizarPost.addEventListener("click", (e) => {
-            const inputEditarTesto = document.querySelector("#inputeditcomentario").value
-            if (id === e.target.id) {
-                let editaPost = {
-                    content: textAreaPost
-                }
-                ApiBlogKenzie.atualizarConteudoPost(id, { content: editaPost })
-            }
-            console.log(e.target)
-            console.log(inputEditarTesto)
-        })
-    }
-    static deletarPost(id) {
-        const deletarPost = document.querySelector(".botaodeletar")
-        deletarPost.addEventListener("click", (e) => {
-            if (id === e.target.id) {
-                ApiBlogKenzie.deletarPost(id)
-            }
-            console.log(e.target)
-        })
-    }
-    static async buscarpostUsuario() {
 
-
-        const infoUsuario = await ApiBlogKenzie.pegarInformacoesPost()
-        console.log(infoUsuario)
-
-    }
-}
 class Logout {
     static sairDapágina() {
         const logout = document.querySelector(".buttonlogout")
@@ -140,6 +99,7 @@ Postes.editarPost()
 Postes.buscarpostUsuario()
 Postes.buscarpostUsuario()
 Postes.deletarPost()
+Postes.pegarinfpost()
 
 Logout.sairDapágina()
 export { HomePage }
