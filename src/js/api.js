@@ -24,7 +24,7 @@ class ApiBlogKenzie {
     }
 
     static async login(userslogin) {
-
+        const tokenlogin = localStorage.getItem("KenzieBlog:Token")
         await fetch(`${this.URLbase}/users/login`, {
             method: "POST",
             headers: this.headers,
@@ -34,10 +34,9 @@ class ApiBlogKenzie {
             .then(resp => {
                 localStorage.setItem("KenziBlog:Id", resp.userId)
                 localStorage.setItem("KenzieBlog:Token", resp.token)
-                window.location.replace("./src/html/HomePage.html")
-
                 localStorage.setItem("KenziBlog: id", resp.userId)
                 localStorage.setItem("KenzieBlog: token", resp.token)
+                if(tokenlogin){window.location.assign("./src/html/HomePage.html")}
                 console.log(resp)
                 return resp
                 /* 
